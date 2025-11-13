@@ -1,0 +1,308 @@
+/* ===========================
+   Base e Tokens de Cores
+   =========================== */
+:root {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --primary: #2563eb;       /* azul */
+  --primary-600: #1d4ed8;
+  --border: #e5e7eb;
+  --shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ===========================
+   Tipografia
+   =========================== */
+h1, h2, h3 {
+  margin: 0 0 .5rem;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+#results h2, #results h3 {
+  margin-top: .5rem;
+}
+
+/* ===========================
+   Layout principal
+   =========================== */
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* Se você não tiver uma .container no HTML,
+   o body já está com paddings e vai ficar bom também. */
+
+/* Cabeçalho (título + subtítulo) */
+header,
+.page-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+header h1,
+.page-header h1 {
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+header p,
+.page-header p {
+  color: var(--muted);
+}
+
+/* ===========================
+   Card genérico
+   =========================== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+/* ===========================
+   Formulário
+   =========================== */
+form#searchForm {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin: 12px 0;
+}
+
+/* Linha do input de texto + botão lado a lado */
+form#searchForm .row-inline {
+  display: grid;
+  grid-template-columns: 1fr auto; /* input cresce, botão mantém o tamanho */
+  gap: 10px;
+  align-items: center;
+}
+
+/* Se você não tiver .row-inline no HTML,
+   os estilos de input e button abaixo já ajudam a alinhar. */
+
+/* Campos de formulário */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+}
+
+/* Botão principal */
+button[type="submit"],
+button,
+.btn {
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter .15s ease, transform .05s ease, background .15s ease;
+}
+
+button:hover {
+  background: var(--primary-600);
+}
+
+button:active {
+  transform: scale(.98);
+}
+
+button:disabled {
+  filter: grayscale(.4) brightness(.9);
+  cursor: not-allowed;
+}
+
+/* Bloco do seletor de idiomas (fica abaixo do input) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Rótulos */
+label {
+  display: block;
+  margin: 10px 0 6px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* ===========================
+   Barra informativa do destino
+   =========================== */
+.info-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid #c7d2fe;
+  background: #eef2ff;
+  color: #1e293b;
+  border-radius: 10px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: .8rem;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ===========================
+   Resultados
+   =========================== */
+#results {
+  margin-top: 16px;
+}
+
+.result-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* original | traduzida */
+  gap: 16px;
+}
+
+.result-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.kv-label {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: .85rem;
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  color: #334155;
+}
+
+.placeholder-muted {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Verbete (dicionário) */
+.dictionary-entry {
+  margin-top: 4px;
+}
+
+hr.sep {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 12px 0;
+}
+
+/* ===========================
+   Acessibilidade extra
+   =========================== */
+:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, .35);
+  outline-offset: 2px;
+}
+
+/* ===========================
+   Responsividade
+   =========================== */
+@media (max-width: 720px) {
+  .form-row,
+  .result-grid {
+    grid-template-columns: 1fr; /* empilha no mobile */
+  }
+
+  form#searchForm {
+    padding: 14px;
+  }
+
+  .result-box {
+    padding: 14px;
+  }
+}
+
+/* ===========================
+   (Opcional) Tema escuro rápido
+   Ative no body com: data-theme="dark"
+   =========================== */
+@media (prefers-color-scheme: dark) {
+  /* Respeita o tema do sistema */
+  body:not([data-theme="light"]) {
+    --bg: #0b1220;
+    --surface: #0f172a;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: #1f2937;
+    --shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+body[data-theme="dark"] {
+  --bg: #0b1220;
+  --surface: #0f172a;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --border: #1f2937;
+  --shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}

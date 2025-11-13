@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Diciotranslate — seu dicionário para qualquer idioma</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<script>app.js</script>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1>Diciotranslate</h1>
+      <p>Seu dicionário para qualquer idioma.</p>
+    </header>
+
+    <form id="searchForm">
+      <div class="row-inline">
+        <label for="wordInput" class="visually-hidden">Digite uma palavra:</label>
+        <input type="text" id="wordInput" name="word" placeholder="Ex.: casa, computer..." required>
+        <button type="submit">Buscar</button>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label for="fromLang">Idioma de origem:</label>
+          <select id="fromLang" name="fromLang">
+            <option value="auto">Detectar automaticamente</option>
+            <option value="pt">Português</option>
+            <option value="en">Inglês</option>
+            <option value="es">Espanhol</option>
+            <option value="fr">Francês</option>
+            <option value="de">Alemão</option>
+            <option value="it">Italiano</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="info-bar">
+        <span class="badge">Info</span>
+        <span>O texto será traduzido para <strong>português</strong>.</span>
+      </div>
+    </form>
+
+    <section id="results">
+      <div class="result-box">
+        <div class="result-title">Resultado</div>
+        <div class="result-grid">
+          <div>
+            <span class="kv-label">Palavra original</span>
+            <p id="originalWord" class="placeholder-muted">—</p>
+          </div>
+          <div>
+            <span class="kv-label">Palavra traduzida</span>
+            <p id="translatedWord" class="placeholder-muted">—</p>
+          </div>
+        </div>
+        <hr class="sep">
+        <div>
+          <div class="kv-label">Verbete do dicionário</div>
+          <div id="dictionaryEntry" class="dictionary-entry placeholder-muted">
+            <!-- conteúdo do dicionário -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
