@@ -1,15 +1,18 @@
 /* ===========================
-   Base e Tokens de Cores
+   Base e Tokens de Cores OTIMIZADOS para DARK MODE
    =========================== */
 :root {
-  --bg: #f7f9fc;
-  --surface: #ffffff;
-  --text: #0f172a;
-  --muted: #6b7280;
-  --primary: #2563eb;       /* azul */
-  --primary-600: #1d4ed8;
-  --border: #e5e7eb;
-  --shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  /* DARK MODE como padrão */
+  --bg: #1a202c; /* Fundo principal mais escuro */
+  --surface: #2d3748; /* Cor dos "cartões"/seções */
+  --text: #f0f4f8; /* Texto claro para contraste */
+  --muted: #a0aec0; /* Texto secundário */
+  --primary: #63b3ed; /* Azul primário (mais claro para contraste no dark) */
+  --primary-600: #4299e1; /* Hover mais vibrante */
+  --secondary: #9f7aea; /* Novo secundário para badges */
+  --secondary-light: #b794f4; /* Mais claro para badges */
+  --border: #4a5568; /* Borda mais escura */
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra mais pronunciada */
   --radius: 12px;
 }
 
@@ -17,292 +20,151 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* ===========================
-   Tipografia
-   =========================== */
-h1, h2, h3 {
-  margin: 0 0 .5rem;
-  line-height: 1.25;
-}
-
-p {
-  margin: 0 0 1rem;
-}
-
-#results h2, #results h3 {
-  margin-top: .5rem;
-}
-
-/* ===========================
-   Layout principal
+   Layout Principal e Cards
    =========================== */
 .container {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 24px 16px 40px;
+  max-width: 960px;
 }
 
-/* Se você não tiver uma .container no HTML,
-   o body já está com paddings e vai ficar bom também. */
-
-/* Cabeçalho (título + subtítulo) */
-header,
-.page-header {
-  text-align: center;
-  margin-bottom: 16px;
+/* Cards (as seções com fundo 'surface') */
+.p-4.rounded-3.shadow-lg.bg-white, /* Formulário */
+.result-box { /* Seção de Resultados */
+  background: var(--surface) !important; /* Força o fundo escuro */
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow) !important; /* Aplica a nova sombra */
 }
 
-header h1,
+/* ===========================
+   Estilização de Componentes
+   =========================== */
+
+/* Header */
 .page-header h1 {
-  font-weight: 800;
-  letter-spacing: .2px;
+  color: var(--primary) !important; /* Garante que o H1 use a nova cor primária */
 }
-
-header p,
 .page-header p {
-  color: var(--muted);
+  color: var(--muted) !important;
 }
 
-/* ===========================
-   Card genérico
-   =========================== */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 16px;
+/* Input e Select */
+.form-control,
+.form-select {
+  background-color: var(--bg) !important; /* Fundo do input/select */
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+.form-control::placeholder {
+  color: var(--muted) !important;
+  opacity: 0.7;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 0.25rem rgba(99, 179, 237, 0.25) !important; /* Sombra de foco com a nova cor primária */
 }
 
-/* ===========================
-   Formulário
-   =========================== */
-form#searchForm {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 16px;
-  margin: 12px 0;
+/* Botão */
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  transition: all 0.2s ease-in-out;
+}
+.btn-primary:hover {
+  background-color: var(--primary-600) !important;
+  border-color: var(--primary-600) !important;
+  transform: translateY(-2px); /* Pequeno efeito hover */
 }
 
-/* Linha do input de texto + botão lado a lado */
-form#searchForm .row-inline {
-  display: grid;
-  grid-template-columns: 1fr auto; /* input cresce, botão mantém o tamanho */
-  gap: 10px;
-  align-items: center;
+/* Labels */
+.form-label {
+  color: var(--muted) !important; /* Labels em cor secundária */
 }
 
-/* Se você não tiver .row-inline no HTML,
-   os estilos de input e button abaixo já ajudam a alinhar. */
-
-/* Campos de formulário */
-input[type="text"],
-select {
-  width: 100%;
-  padding: 12px 12px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: #fff;
-  color: var(--text);
-  font-size: 1rem;
-  outline: none;
-  transition: border-color .15s ease, box-shadow .15s ease;
+/* Alert info */
+.alert-info {
+  background-color: rgba(99, 179, 237, 0.1) !important; /* Fundo mais suave para o alerta */
+  color: var(--primary) !important; /* Texto com a cor primária */
+  border-color: rgba(99, 179, 237, 0.3) !important;
+}
+.alert-info .badge {
+  background-color: var(--primary) !important;
+  color: var(--bg) !important;
 }
 
-input::placeholder {
-  color: #9ca3af;
+/* Badges de Resultado */
+.kv-label.badge {
+  background-color: rgba(159, 122, 234, 0.15) !important; /* Cor secundária com transparência */
+  color: var(--secondary) !important;
+}
+.badge.bg-success-subtle { /* Badge da palavra traduzida */
+  background-color: rgba(16, 185, 129, 0.15) !important; /* Verde mais escuro para dark mode */
+  color: #34d399 !important; /* Verde mais claro para o texto */
 }
 
-input:focus,
-select:focus,
-button:focus-visible {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+/* Texto de Resultados */
+#originalWord, #translatedWord {
+  color: var(--text) !important; /* Garante que o texto seja claro */
 }
-
-/* Botão principal */
-button[type="submit"],
-button,
-.btn {
-  padding: 12px 16px;
-  border: 0;
-  border-radius: 10px;
-  background: var(--primary);
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  transition: filter .15s ease, transform .05s ease, background .15s ease;
+#translatedWord {
+  color: #34d399 !important; /* Verde para a palavra traduzida */
 }
-
-button:hover {
-  background: var(--primary-600);
+.text-dark {
+  color: var(--text) !important;
 }
-
-button:active {
-  transform: scale(.98);
+.text-success {
+  color: #34d399 !important;
 }
-
-button:disabled {
-  filter: grayscale(.4) brightness(.9);
-  cursor: not-allowed;
-}
-
-/* Bloco do seletor de idiomas (fica abaixo do input) */
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-/* Rótulos */
-label {
-  display: block;
-  margin: 10px 0 6px;
-  font-weight: 600;
-  color: #1f2937;
-}
-
-/* ===========================
-   Barra informativa do destino
-   =========================== */
-.info-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  padding: 10px 12px;
-  border: 1px solid #c7d2fe;
-  background: #eef2ff;
-  color: #1e293b;
-  border-radius: 10px;
-}
-
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: .8rem;
-  border-radius: 999px;
-  background: var(--primary);
-  color: #fff;
-}
-
-/* ===========================
-   Resultados
-   =========================== */
-#results {
-  margin-top: 16px;
-}
-
-.result-box {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 16px;
-  margin-bottom: 12px;
-}
-
-.result-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* original | traduzida */
-  gap: 16px;
-}
-
-.result-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.kv-label {
-  display: inline-block;
-  margin-bottom: 4px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  font-size: .85rem;
-  background: #f1f5f9;
-  border: 1px solid var(--border);
-  color: #334155;
-}
-
-.placeholder-muted {
-  color: var(--muted);
-  font-style: italic;
-}
-
-/* Verbete (dicionário) */
-.dictionary-entry {
-  margin-top: 4px;
+.text-muted, .placeholder-muted {
+  color: var(--muted) !important;
 }
 
 hr.sep {
-  border: 0;
   border-top: 1px solid var(--border);
-  margin: 12px 0;
 }
 
 /* ===========================
-   Acessibilidade extra
+   Layouts específicos
    =========================== */
+form#searchForm .row-inline {
+  display: grid;
+  grid-template-columns: 1fr auto; 
+  gap: 12px;
+  align-items: center;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+/* Foco customizado (ajustado para a nova cor primária) */
 :focus-visible {
-  outline: 3px solid rgba(37, 99, 235, .35);
+  outline: 3px solid rgba(99, 179, 237, 0.4);
   outline-offset: 2px;
 }
 
 /* ===========================
    Responsividade
    =========================== */
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .form-row,
   .result-grid {
-    grid-template-columns: 1fr; /* empilha no mobile */
+    grid-template-columns: 1fr;
   }
 
-  form#searchForm {
-    padding: 14px;
+  .form-row > div:nth-child(2) {
+    grid-column: 1 / -1; 
   }
-
-  .result-box {
-    padding: 14px;
-  }
-}
-
-/* ===========================
-   (Opcional) Tema escuro rápido
-   Ative no body com: data-theme="dark"
-   =========================== */
-@media (prefers-color-scheme: dark) {
-  /* Respeita o tema do sistema */
-  body:not([data-theme="light"]) {
-    --bg: #0b1220;
-    --surface: #0f172a;
-    --text: #e5e7eb;
-    --muted: #94a3b8;
-    --border: #1f2937;
-    --shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
-  }
-}
-
-body[data-theme="dark"] {
-  --bg: #0b1220;
-  --surface: #0f172a;
-  --text: #e5e7eb;
-  --muted: #94a3b8;
-  --border: #1f2937;
-  --shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
 }
