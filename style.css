@@ -1,5 +1,5 @@
 /* ===========================
-   Base e Tokens de Cores
+   Base e Tokens de Cores OTIMIZADOS para DARK MODE
    =========================== */
 :root {
   --app-primary: #2563eb;
@@ -142,7 +142,7 @@ hr.sep {
 @media (max-width: 720px) {
   form#searchForm .row-inline,
   .result-grid {
-    grid-template-columns: 1fr; /* empilha no mobile */
+    grid-template-columns: 1fr;
   }
 
   form#searchForm,
