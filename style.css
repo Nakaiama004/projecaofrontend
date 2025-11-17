@@ -2,169 +2,191 @@
    Base e Tokens de Cores OTIMIZADOS para DARK MODE
    =========================== */
 :root {
-  /* DARK MODE como padrão */
-  --bg: #1a202c; /* Fundo principal mais escuro */
-  --surface: #2d3748; /* Cor dos "cartões"/seções */
-  --text: #f0f4f8; /* Texto claro para contraste */
-  --muted: #a0aec0; /* Texto secundário */
-  --primary: #63b3ed; /* Azul primário (mais claro para contraste no dark) */
-  --primary-600: #4299e1; /* Hover mais vibrante */
-  --secondary: #9f7aea; /* Novo secundário para badges */
-  --secondary-light: #b794f4; /* Mais claro para badges */
-  --border: #4a5568; /* Borda mais escura */
-  --shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra mais pronunciada */
-  --radius: 12px;
+  --app-primary: #2563eb;
+  --app-primary-rgb: 37, 99, 235;
+  --app-primary-dark: #1d4ed8;
+  --app-bg: #f7f9fc;
+  --app-surface: #ffffff;
+  --app-text: #0f172a;
+  --app-muted: #6b7280;
+  --app-border: #e5e7eb;
+  --app-radius: 12px;
+  --app-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
 }
 
-* {
-  box-sizing: border-box;
+/* ===========================
+   1. Repaginação: Sobrescrevendo o Bootstrap
+   =========================== */
+:root,
+[data-bs-theme="light"] {
+  --bs-primary: var(--app-primary);
+  --bs-primary-rgb: var(--app-primary-rgb);
+  --bs-body-bg: var(--app-bg);
+  --bs-body-color: var(--app-text);
+  --bs-border-color: var(--app-border);
+  --bs-border-radius: .65rem; /* Um pouco mais arredondado */
+  --bs-border-radius-lg: 1rem;
+  --bs-form-control-focus-box-shadow: 0 0 0 3px rgba(var(--app-primary-rgb), .15);
+  --bs-btn-hover-bg: var(--app-primary-dark);
+  --bs-btn-active-transform: scale(.98);
+  --bs-secondary: var(--app-muted);
 }
 
+/* ===========================
+   2. Estilos Globais e Tipografia
+   =========================== */
 body {
-  margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===========================
-   Layout Principal e Cards
-   =========================== */
-.container {
-  max-width: 960px;
-}
-
-/* Cards (as seções com fundo 'surface') */
-.p-4.rounded-3.shadow-lg.bg-white, /* Formulário */
-.result-box { /* Seção de Resultados */
-  background: var(--surface) !important; /* Força o fundo escuro */
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow) !important; /* Aplica a nova sombra */
-}
-
-/* ===========================
-   Estilização de Componentes
-   =========================== */
-
-/* Header */
+/* Ajuste de tipografia do Bootstrap */
 .page-header h1 {
-  color: var(--primary) !important; /* Garante que o H1 use a nova cor primária */
+  font-weight: 800;
+  letter-spacing: .2px;
 }
 .page-header p {
-  color: var(--muted) !important;
-}
-
-/* Input e Select */
-.form-control,
-.form-select {
-  background-color: var(--bg) !important; /* Fundo do input/select */
-  color: var(--text) !important;
-  border: 1px solid var(--border) !important;
-}
-.form-control::placeholder {
-  color: var(--muted) !important;
-  opacity: 0.7;
-}
-.form-control:focus,
-.form-select:focus {
-  border-color: var(--primary) !important;
-  box-shadow: 0 0 0 0.25rem rgba(99, 179, 237, 0.25) !important; /* Sombra de foco com a nova cor primária */
-}
-
-/* Botão */
-.btn-primary {
-  background-color: var(--primary) !important;
-  border-color: var(--primary) !important;
-  transition: all 0.2s ease-in-out;
-}
-.btn-primary:hover {
-  background-color: var(--primary-600) !important;
-  border-color: var(--primary-600) !important;
-  transform: translateY(-2px); /* Pequeno efeito hover */
-}
-
-/* Labels */
-.form-label {
-  color: var(--muted) !important; /* Labels em cor secundária */
-}
-
-/* Alert info */
-.alert-info {
-  background-color: rgba(99, 179, 237, 0.1) !important; /* Fundo mais suave para o alerta */
-  color: var(--primary) !important; /* Texto com a cor primária */
-  border-color: rgba(99, 179, 237, 0.3) !important;
-}
-.alert-info .badge {
-  background-color: var(--primary) !important;
-  color: var(--bg) !important;
-}
-
-/* Badges de Resultado */
-.kv-label.badge {
-  background-color: rgba(159, 122, 234, 0.15) !important; /* Cor secundária com transparência */
-  color: var(--secondary) !important;
-}
-.badge.bg-success-subtle { /* Badge da palavra traduzida */
-  background-color: rgba(16, 185, 129, 0.15) !important; /* Verde mais escuro para dark mode */
-  color: #34d399 !important; /* Verde mais claro para o texto */
-}
-
-/* Texto de Resultados */
-#originalWord, #translatedWord {
-  color: var(--text) !important; /* Garante que o texto seja claro */
-}
-#translatedWord {
-  color: #34d399 !important; /* Verde para a palavra traduzida */
-}
-.text-dark {
-  color: var(--text) !important;
-}
-.text-success {
-  color: #34d399 !important;
-}
-.text-muted, .placeholder-muted {
-  color: var(--muted) !important;
-}
-
-hr.sep {
-  border-top: 1px solid var(--border);
+  color: var(--app-muted);
+  font-size: 1.2rem;
 }
 
 /* ===========================
-   Layouts específicos
+   3. Estilos customizados (trabalhando COM o Bootstrap)
    =========================== */
+
+/* Formulário (Usando suas classes originais) */
+form#searchForm {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  box-shadow: var(--app-shadow);
+  padding: 20px;
+  margin: 12px 0;
+}
+
 form#searchForm .row-inline {
   display: grid;
-  grid-template-columns: 1fr auto; 
+  grid-template-columns: 1fr auto; /* input cresce, botão mantém o tamanho */
   gap: 12px;
   align-items: center;
 }
 
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
-/* Foco customizado (ajustado para a nova cor primária) */
-:focus-visible {
-  outline: 3px solid rgba(99, 179, 237, 0.4);
-  outline-offset: 2px;
+/* Alerta (customizando o .alert-info do BS) */
+.alert-info {
+  background-color: #eef2ff;
+  border-color: #c7d2fe;
+  color: #1e293b;
+}
+
+/* ===========================
+   Resultados (Usando suas classes originais)
+   =========================== */
+#results {
+  margin-top: 20px;
+}
+
+.result-box {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  box-shadow: var(--app-shadow);
+  padding: 20px;
+}
+
+.result-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--app-primary);
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* original | traduzida */
+  gap: 20px;
+}
+
+.kv-label {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  border: 1px solid var(--app-border);
+  color: #334155;
+}
+
+hr.sep {
+  border: 0;
+  border-top: 1px solid var(--app-border);
+  margin: 1.2rem 0;
+}
+
+.placeholder-muted {
+  color: var(--app-muted);
+  font-style: italic;
 }
 
 /* ===========================
    Responsividade
    =========================== */
-@media (max-width: 768px) {
-  .form-row,
+@media (max-width: 720px) {
+  form#searchForm .row-inline,
   .result-grid {
     grid-template-columns: 1fr;
   }
 
-  .form-row > div:nth-child(2) {
-    grid-column: 1 / -1; 
+  form#searchForm,
+  .result-box {
+    padding: 16px;
   }
+}
+
+/* ===========================
+   Tema Escuro (Sincronizado com Bootstrap 5.3)
+   =========================== */
+[data-bs-theme="dark"] {
+  --app-bg: #0b1220;
+  --app-surface: #0f172a;
+  --app-text: #e5e7eb;
+  --app-muted: #94a3b8;
+  --app-border: #1f2937;
+  --app-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  
+  --bs-body-bg: var(--app-bg);
+  --bs-body-color: var(--app-text);
+  --bs-border-color: var(--app-border);
+}
+
+[data-bs-theme="dark"] form#searchForm,
+[data-bs-theme="dark"] .result-box {
+  background: var(--app-surface);
+  border-color: var(--app-border);
+  box-shadow: var(--app-shadow);
+}
+
+[data-bs-theme="dark"] .kv-label {
+  background: #1f2937;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+[data-bs-theme="dark"] .alert-info {
+  background-color: #1e293b;
+  border-color: #2563eb;
+  color: #e5e7eb;
+}
+
+/* NOVA COR: Texto do placeholder no dark mode BEM MAIS CLARO */
+[data-bs-theme="dark"] .placeholder-muted {
+  color: #f8fafc; /* Um branco bem suave, quase total */
 }
