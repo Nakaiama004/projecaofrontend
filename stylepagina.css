@@ -1,0 +1,169 @@
+/* ============================================
+   BASE — Importando as mesmas variáveis
+   ============================================ */
+:root {
+  --app-primary: #2563eb;
+  --app-primary-rgb: 37, 99, 235;
+  --app-primary-dark: #1d4ed8;
+  --app-bg: #f7f9fc;
+  --app-surface: #ffffff;
+  --app-text: #0f172a;
+  --app-muted: #6b7280;
+  --app-border: #e5e7eb;
+  --app-radius: 12px;
+  --app-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+[data-bs-theme="dark"] {
+  --app-bg: #0b1220;
+  --app-surface: #0f172a;
+  --app-text: #e5e7eb;
+  --app-muted: #94a3b8;
+  --app-border: #1f2937;
+  --app-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   GLOBAL
+   ============================================ */
+body {
+  background: var(--app-bg);
+  color: var(--app-text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+  margin: 0;
+  padding: 24px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--app-primary);
+  margin-bottom: 8px;
+}
+
+.btn-voltar {
+  background: var(--app-primary);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: var(--app-radius);
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: var(--app-shadow);
+}
+
+.btn-voltar:hover {
+  background: var(--app-primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-voltar:active {
+  transform: scale(.97);
+}
+
+/* ============================================
+   LAYOUT PRINCIPAL
+   ============================================ */
+.painel-hist-fav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* ============================================
+   CAIXAS (equivalentes ao result-box)
+   ============================================ */
+.caixa-lista {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  padding: 20px;
+  box-shadow: var(--app-shadow);
+}
+
+.caixa-lista h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--app-primary);
+  margin-bottom: 16px;
+}
+
+/* Inputs de filtro — iguais aos do form do index */
+.caixa-lista input {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--app-radius);
+  border: 1px solid var(--app-border);
+  background: var(--app-surface);
+  color: var(--app-text);
+  margin-bottom: 14px;
+}
+
+.caixa-lista input::placeholder {
+  color: var(--app-muted);
+  font-style: italic;
+}
+
+/* ============================================
+   LISTAS
+   ============================================ */
+.lista-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-itens li {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--app-shadow);
+}
+
+.lista-itens li span {
+  font-weight: 600;
+}
+
+/* Botões dentro das listas */
+.btn-remover,
+.btn-favoritar {
+  background: transparent;
+  color: var(--app-primary);
+  border: 1px solid var(--app-border);
+  padding: 6px 10px;
+  border-radius: var(--app-radius);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-remover:hover,
+.btn-favoritar:hover {
+  background: rgba(var(--app-primary-rgb), 0.1);
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 720px) {
+  .painel-hist-fav {
+    grid-template-columns: 1fr;
+  }
+  
+  .caixa-lista {
+    padding: 16px;
+  }
+}
