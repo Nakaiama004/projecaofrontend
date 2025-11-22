@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Traduções</title>
+    <link rel="stylesheet" href="stylepagina.css"> 
+    <script>
+        // Lógica de tema escuro/claro
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDark) {
+            document.documentElement.setAttribute("data-bs-theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-bs-theme", "light");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1 class="titulo">Histórico de Traduções</h1>
+        <nav>
+            <button onclick="location.href='index.html'" class="btn-voltar">⬅ Voltar</button>
+        </nav>
+    </header>
+    <main class="painel-hist-fav">  
+        <section class="caixa-lista historico-apenas">
+            <h2>Traduções Recentes</h2>
+            <input type="text" id="filtroHistorico" placeholder="Filtrar histórico..." oninput="filtrarHistorico()">
+            <ul id="listaHistorico" class="lista-itens">
+                </ul>
+            <button onclick="limparHistorico()" class="btn-voltar mt-3" style="width: 100%; background: #dc3545;">Limpar Tudo</button>
+        </section>
+    </main>
+    <script src="historico.js"></script>
+</body>
+</html>

@@ -1,6 +1,3 @@
-/* ===========================
-   Base e Tokens de Cores OTIMIZADOS para DARK MODE
-   =========================== */
 :root {
   --app-primary: #2563eb;
   --app-primary-rgb: 37, 99, 235;
@@ -14,9 +11,6 @@
   --app-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
 }
 
-/* ===========================
-   1. Repaginação: Sobrescrevendo o Bootstrap
-   =========================== */
 :root,
 [data-bs-theme="light"] {
   --bs-primary: var(--app-primary);
@@ -24,7 +18,7 @@
   --bs-body-bg: var(--app-bg);
   --bs-body-color: var(--app-text);
   --bs-border-color: var(--app-border);
-  --bs-border-radius: .65rem; /* Um pouco mais arredondado */
+  --bs-border-radius: .65rem; 
   --bs-border-radius-lg: 1rem;
   --bs-form-control-focus-box-shadow: 0 0 0 3px rgba(var(--app-primary-rgb), .15);
   --bs-btn-hover-bg: var(--app-primary-dark);
@@ -32,16 +26,14 @@
   --bs-secondary: var(--app-muted);
 }
 
-/* ===========================
-   2. Estilos Globais e Tipografia
-   =========================== */
+
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ajuste de tipografia do Bootstrap */
+
 .page-header h1 {
   font-weight: 800;
   letter-spacing: .2px;
@@ -51,11 +43,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* ===========================
-   3. Estilos customizados (trabalhando COM o Bootstrap)
-   =========================== */
-
-/* Formulário (Usando suas classes originais) */
 form#searchForm {
   background: var(--app-surface);
   border: 1px solid var(--app-border);
@@ -67,7 +54,7 @@ form#searchForm {
 
 form#searchForm .row-inline {
   display: grid;
-  grid-template-columns: 1fr auto; /* input cresce, botão mantém o tamanho */
+  grid-template-columns: 1fr auto; 
   gap: 12px;
   align-items: center;
 }
@@ -79,16 +66,13 @@ form#searchForm .row-inline {
   margin-top: 10px;
 }
 
-/* Alerta (customizando o .alert-info do BS) */
+
 .alert-info {
   background-color: #eef2ff;
   border-color: #c7d2fe;
   color: #1e293b;
 }
 
-/* ===========================
-   Resultados (Usando suas classes originais)
-   =========================== */
 #results {
   margin-top: 20px;
 }
@@ -109,7 +93,7 @@ form#searchForm .row-inline {
 
 .result-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* original | traduzida */
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
@@ -135,10 +119,6 @@ hr.sep {
   color: var(--app-muted);
   font-style: italic;
 }
-
-/* ===========================
-   Responsividade
-   =========================== */
 @media (max-width: 720px) {
   form#searchForm .row-inline,
   .result-grid {
@@ -151,9 +131,6 @@ hr.sep {
   }
 }
 
-/* ===========================
-   Tema Escuro (Sincronizado com Bootstrap 5.3)
-   =========================== */
 [data-bs-theme="dark"] {
   --app-bg: #0b1220;
   --app-surface: #0f172a;
@@ -186,7 +163,6 @@ hr.sep {
   color: #e5e7eb;
 }
 
-/* NOVA COR: Texto do placeholder no dark mode BEM MAIS CLARO */
 [data-bs-theme="dark"] .placeholder-muted {
-  color: #f8fafc; /* Um branco bem suave, quase total */
+  color: #f8fafc; 
 }
